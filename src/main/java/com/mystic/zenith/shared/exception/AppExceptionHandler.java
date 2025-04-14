@@ -21,9 +21,24 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
         return handleTakenException("email", ex, req);
     }
 
+    @ExceptionHandler(UsernameTakenException.class)
     public ResponseEntity<?> handleUsernameTakenException(UsernameTakenException ex, WebRequest req) {
         return handleTakenException("username", ex, req);
     }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFoundException(UserNotFoundException ex, WebRequest req) {
+        return handleNotFoundException("user", ex, req);
+    }
+
+    private ResponseEntity<?> handleNotFoundException(String field, NotFoundException ex, WebRequest req) {
+        String message = ex.getMessage();
+        HttpStatus status = HttpStatus.NOT_FOUND;
+
+        Map<String, Object> error = toMap("errors", toMap(field, toList(message)));
+        return handleExceptionInternal(ex, error, new HttpHeaders(), status, req);
+    }
+
 
     private ResponseEntity<?> handleTakenException(String field, TakenException ex, WebRequest req) {
         String message = ex.getMessage();
