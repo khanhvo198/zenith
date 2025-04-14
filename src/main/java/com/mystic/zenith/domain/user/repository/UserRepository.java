@@ -1,2 +1,16 @@
-package com.mystic.zenith.domain.user.repository;public class UserRepository {
+package com.mystic.zenith.domain.user.repository;
+
+import com.mystic.zenith.domain.user.entity.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+import java.util.UUID;
+
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity, UUID> {
+
+    Optional<UserEntity> findByEmail(String email);
+
+    Optional<UserEntity> findByUsername(String username);
 }

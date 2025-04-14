@@ -1,2 +1,4 @@
-package com.mystic.zenith.shared.exception;public class UserNotFoundException {
+package com.mystic.zenith.shared.exception;
+
+public class UserNotFoundException extends NotFoundException {
 }

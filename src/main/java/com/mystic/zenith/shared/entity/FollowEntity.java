@@ -1,6 +1,6 @@
-package com.mystic.zenith.domain.user.entity;
+package com.mystic.zenith.shared.entity;
 
-import com.mystic.zenith.shared.entity.BaseEntity;
+import com.mystic.zenith.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
 
 @Entity

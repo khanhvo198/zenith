@@ -1,6 +1,8 @@
-package com.mystic.zenith.domain.shared.entity;
+package com.mystic.zenith.shared.entity;
 
 
+import com.mystic.zenith.domain.post.entity.PostEntity;
+import com.mystic.zenith.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,4 +30,6 @@ public class BaseEntity {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+
 }
