@@ -2,13 +2,16 @@ package com.mystic.zenith.domain.user.service;
 
 import com.mystic.zenith.domain.auth.entity.AuthUserDetails;
 import com.mystic.zenith.domain.user.dto.UserDto;
+import com.mystic.zenith.domain.user.dto.response.UserResponseDto;
 import com.mystic.zenith.domain.user.entity.UserEntity;
+import com.mystic.zenith.domain.user.mapper.UserMapper;
 import com.mystic.zenith.domain.user.repository.UserRepository;
 import com.mystic.zenith.shared.exception.UserNotFoundException;
 import com.mystic.zenith.shared.mapper.Mapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,18 +20,17 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final Mapper mapper;
+    private final UserMapper userMapper;
 
     @Override
-    public UserDto getCurrentUser(AuthUserDetails auth) {
+    public UserResponseDto getCurrentUser(AuthUserDetails auth) {
         UserEntity user =  userRepository.findById(auth.getId()).orElseThrow(UserNotFoundException::new);
-        return mapper.mapToResponse(user, UserDto.class);
+        return userMapper.mapToUserResponseDto(user);
     }
 
     @Override
-    public UserDto getUserById(UUID id) {
+    public UserResponseDto getUserById(UUID id) {
         UserEntity user = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
-
-        return mapper.mapToResponse(user, UserDto.class);
+        return userMapper.mapToUserResponseDto(user);
     }
 }

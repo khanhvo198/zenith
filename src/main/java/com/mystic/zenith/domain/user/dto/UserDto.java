@@ -1,5 +1,7 @@
 package com.mystic.zenith.domain.user.dto;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.*;
 
 import java.util.UUID;
