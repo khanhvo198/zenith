@@ -1,7 +1,6 @@
 package com.mystic.zenith.domain.user.entity;
 
 import com.mystic.zenith.shared.entity.BaseEntity;
-import com.mystic.zenith.shared.entity.FollowEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

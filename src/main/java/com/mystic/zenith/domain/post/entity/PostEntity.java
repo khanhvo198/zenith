@@ -3,7 +3,6 @@ package com.mystic.zenith.domain.post.entity;
 import com.mystic.zenith.domain.comment.entity.CommentEntity;
 import com.mystic.zenith.shared.entity.BaseEntity;
 import com.mystic.zenith.domain.user.entity.UserEntity;
-import com.mystic.zenith.shared.entity.FavoriteEntity;
 import jakarta.persistence.*;
 
 import java.util.List;

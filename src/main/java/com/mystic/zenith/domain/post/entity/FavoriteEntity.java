@@ -1,7 +1,7 @@
-package com.mystic.zenith.shared.entity;
+package com.mystic.zenith.domain.post.entity;
 
-import com.mystic.zenith.domain.post.entity.PostEntity;
 import com.mystic.zenith.domain.user.entity.UserEntity;
+import com.mystic.zenith.shared.entity.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
