@@ -2,6 +2,7 @@ package com.mystic.zenith.domain.auth.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @Builder
+@Getter
 public class AuthUserDetails implements UserDetails {
 
     private UUID id;
@@ -31,6 +33,7 @@ public class AuthUserDetails implements UserDetails {
     public String getUsername() {
         return this.username;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {

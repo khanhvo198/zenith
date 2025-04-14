@@ -12,8 +12,10 @@ import com.mystic.zenith.shared.exception.UsernameTakenException;
 import com.mystic.zenith.shared.service.JwtService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 @Service
 @AllArgsConstructor
@@ -36,9 +38,6 @@ public class AuthServiceImpl implements AuthService{
     @Override
     @Transactional
     public AuthResponseDto register(RegisterRequestDto user) {
-        // email
-        // password
-
         userRepository.findByEmail(user.getEmail()).ifPresent(userEntity -> {
             throw new EmailTakenException();
         });
